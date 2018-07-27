@@ -1,0 +1,16 @@
+{:uriI"¦file://app/assets/javascripts/angular/components/directives/email_form/form.html?type=text/ng-html&id=2a49e8164ef350c5154e9750b37bf17b3fe6cff6dbf45211687295435169804c:ET:load_pathI"app/assets/javascripts;T:filenameI"Napp/assets/javascripts/angular/components/directives/email_form/form.html;T:	nameI"2angular/components/directives/email_form/form;T:logical_pathI"7angular/components/directives/email_form/form.html;T:content_typeI"text/ng-html;T:sourceI"ú<div ng-controller="GenericFormController as vm" class="form-group" ng-class="vm.error('email')">
+  <label class="form-label" for="email">Email</label>
+
+  <div class="controls">
+    <input id="email" name="email" type="email" ng-model="model.email" placeholder="Email" required/>
+
+    <div class="help-block" ng-show="form.email.$invalid && form.email.$dirty"
+         ng-messages="form.email.$error">
+         	<div ng-messages-include="angular/common/_ng-messages.html"></div>
+     </div>
+  </div>
+</div>;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"8processors:type=text/ng-html&file_type=text/ng-html;TTI"\file-digest://app/assets/javascripts/angular/components/directives/email_form/form.html;TTF:charsetI"
+utf-8;F:digest"%’Õ£â(ÍDÆNİNö7	'•×à3ÓN0>ps…„î„:lengthiú:dependencies_digest"%e©‡/øTşà3ËÚ[ÓÌt€¢Yj™÷ìä§ß×ªÄ:idI"E2a49e8164ef350c5154e9750b37bf17b3fe6cff6dbf45211687295435169804c;F:
+mtimel+ÉY

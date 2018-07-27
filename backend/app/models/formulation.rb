@@ -1,0 +1,2 @@
+class Formulation < ApplicationRecord
+end

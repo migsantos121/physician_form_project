@@ -1,0 +1,48 @@
+{:uriI"file://app/assets/javascripts/angular/report/_report.html?type=text/ng-html&id=d8de69f0fc1d276f22b35a8bf269e0fdf815525600bbeb80cf40a0c11e4d6be0:ET:load_pathI"app/assets/javascripts;T:filenameI"7app/assets/javascripts/angular/report/_report.html;T:	nameI"angular/report/_report;T:logical_pathI" angular/report/_report.html;T:content_typeI"text/ng-html;T:sourceI"l<div ng-controller="ReportController as vm">
+
+  <h3>Weekly Reports</h3>
+
+  <div class="panel panel-default col-xs-12">
+    <div class="row panel-heading">
+      <div class="col-xs-2">
+        Statistics by week
+      </div>
+    </div>
+
+    <ul class="list-group">
+      <div class="row panel-heading">
+        <div class="col-xs-3">
+          Week
+        </div>
+        <div class="col-xs-3">
+          Total Distance (Miles)
+        </div>
+        <div class="col-xs-3">
+          Total Time Spent Running (Hours)
+        </div>
+        <div class="col-xs-3">
+          Average Speed (mph)
+        </div>
+      </div>
+      <li ng-repeat="week in vm.weeks | orderBy:'-start_week_millisecond'" class="list-group-item row">
+      <div class="col-xs-3">
+        {{ week.start_week_human }} to {{ week.last_week_human }}
+      </div>
+      <div class="col-xs-3">
+        {{ week.distance_ran | number:2 }}
+      </div>
+      <div class="col-xs-3">
+        {{ week.time_spent_running | number:2 }}
+      </div>
+      <div class="col-xs-3">
+        {{ week.average_speed | number:2 }}
+      </div>
+      </li>
+    </ul>
+  </div>
+
+</div>;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"8processors:type=text/ng-html&file_type=text/ng-html;TTI"Efile-digest://app/assets/javascripts/angular/report/_report.html;TTF:charsetI"
+utf-8;F:digest"% §//j"‡Ü¶¾tıArÉ"‹´/@¾¹ø3mıB±<:lengthil:dependencies_digest"%"æ©²>Óıšv¿¡Şd^ÌÒ*‘ô‘ë¯—Š¹¡ˆò:idI"Ed8de69f0fc1d276f22b35a8bf269e0fdf815525600bbeb80cf40a0c11e4d6be0;F:
+mtimel+RÊY

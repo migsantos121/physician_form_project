@@ -1,0 +1,2 @@
+class CustomizedFormulation < ApplicationRecord
+end

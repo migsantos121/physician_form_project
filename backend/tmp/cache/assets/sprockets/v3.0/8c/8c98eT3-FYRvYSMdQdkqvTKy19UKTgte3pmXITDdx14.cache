@@ -1,0 +1,48 @@
+{:uriI"file://app/assets/javascripts/angular/report/_report.html?type=text/ng-html&id=2eaac7c5436be15e0b293ce476ca0367341a7a36f011ef84f50cf86e90646d8c:ET:load_pathI"app/assets/javascripts;T:filenameI"7app/assets/javascripts/angular/report/_report.html;T:	nameI"angular/report/_report;T:logical_pathI" angular/report/_report.html;T:content_typeI"text/ng-html;T:sourceI"N<div ng-controller="ReportController as vm">
+
+  <h3>Weekly Reports</h3>
+
+  <div class="panel panel-default col-xs-12">
+    <div class="row panel-heading">
+      <div class="col-xs-2">
+        Statistics by week
+      </div>
+    </div>
+
+    <ul class="list-group">
+      <div class="row panel-heading">
+        <div class="col-xs-3">
+          Week
+        </div>
+        <div class="col-xs-3">
+          Total Distance (Miles)
+        </div>
+        <div class="col-xs-3">
+          Total Time Spent Running (Hours)
+        </div>
+        <div class="col-xs-3">
+          Average Speed (mph)
+        </div>
+      </div>
+      <li ng-repeat="week in vm.weeks | orderBy:'-start_week_millisecond'" class="list-group-item row">
+      <div class="col-xs-3">
+        {{ week.start_week_human }}
+      </div>
+      <div class="col-xs-3">
+        {{ week.distance_ran | number:2 }}
+      </div>
+      <div class="col-xs-3">
+        {{ week.time_spent_running | number:2 }}
+      </div>
+      <div class="col-xs-3">
+        {{ week.average_speed | number:2 }}
+      </div>
+      </li>
+    </ul>
+  </div>
+
+</div>;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"8processors:type=text/ng-html&file_type=text/ng-html;TTI"Efile-digest://app/assets/javascripts/angular/report/_report.html;TTF:charsetI"
+utf-8;F:digest"%´ìOa³ÑåÜEë_´D[YŞ«Æh»îSStÂŸ~Aºm:lengthiN:dependencies_digest"%r€"Ï®Z`ïªğ/Å}]sŒÂMªV"ÏdƒàsÙ=":idI"E2eaac7c5436be15e0b293ce476ca0367341a7a36f011ef84f50cf86e90646d8c;F:
+mtimel+,ÀvT

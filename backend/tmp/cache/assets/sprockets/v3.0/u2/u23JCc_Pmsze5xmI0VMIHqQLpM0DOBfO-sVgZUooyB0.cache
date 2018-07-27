@@ -1,0 +1,14 @@
+{:uriI"’file://app/assets/javascripts/angular/usersManage/_form.html?type=text/ng-html&id=01e5b875d8305f6996454feada0f7340a103c596cccbd5fad6ec38a144291306:ET:load_pathI"app/assets/javascripts;T:filenameI":app/assets/javascripts/angular/usersManage/_form.html;T:	nameI"angular/usersManage/_form;T:logical_pathI"#angular/usersManage/_form.html;T:content_typeI"text/ng-html;T:sourceI"D<div class="col-xs-3">
+  <email-form form="form" model="user" ></email-form>
+</div>
+<div class="col-xs-3">
+  <password-form form="form" model="user" include-confirmation="false"></password-form>
+</div>
+<div ng-if = "userType === 'administrator' " class="col-xs-3" >
+  <type-form form="form" model="user"></type-form>
+</div>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"8processors:type=text/ng-html&file_type=text/ng-html;TTI"Hfile-digest://app/assets/javascripts/angular/usersManage/_form.html;TTF:charsetI"
+utf-8;F:digest"%è²;]…A…dùÅ#Œ*´"'RŠ1;!?¹îã::lengthiD:dependencies_digest"%-‚^HŒ‘Vß"S5íôîÔAô¯Iî\c‘öPÆÈ%6:idI"E01e5b875d8305f6996454feada0f7340a103c596cccbd5fad6ec38a144291306;F:
+mtimel+í1ÊY

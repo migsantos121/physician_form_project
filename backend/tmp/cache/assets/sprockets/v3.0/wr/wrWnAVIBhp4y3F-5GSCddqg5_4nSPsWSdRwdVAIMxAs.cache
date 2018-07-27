@@ -1,0 +1,30 @@
+{:uriI"‹file://app/assets/javascripts/angular/jogs/_form.html?type=text/ng-html&id=46da44a147cd9fd5da749c22df5189e7de10f1a7edaeebb6122495d26c729961:ET:load_pathI"app/assets/javascripts;T:filenameI"3app/assets/javascripts/angular/jogs/_form.html;T:	nameI"angular/jogs/_form;T:logical_pathI"angular/jogs/_form.html;T:content_typeI"text/ng-html;T:sourceI"£<div class="col-xs-3">
+  <span class="dropdown" is-open="dropdownOpen">
+    <div class="input-group" data-toggle = "dropdown">
+      <input type="datetime" datetime-converter class="form-control" data-ng-model="jog.start_at" required>
+      <span class="input-group-addon"></span>
+    </div>
+    <ul class="dropdown-menu">
+      <!-- https://github.com/dalelotts/angular-bootstrap-datetimepicker -->
+      <datetimepicker datetime-converter data-ng-model="jog.start_at" on-set-time="closeDropdown()"/>
+    </ul>
+  </span>
+</div>
+
+<div class="col-xs-2">
+  <input class="form-control" type="decimal" step="0.01" min="0" max="9.99" ng-model="jog.distance" float-converter required>
+</div>
+
+<div class="col-xs-2">
+  <input class="form-control" type="decimal" step="0.01" min="0" max="9.99" ng-model="jog.duration" float-converter required>
+</div>
+
+<div class="col-xs-2">
+  {{ jog.distance / jog.duration | number : 2 }}
+  &nbsp;
+</div>;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"8processors:type=text/ng-html&file_type=text/ng-html;TTI"Afile-digest://app/assets/javascripts/angular/jogs/_form.html;TTF:charsetI"
+utf-8;F:digest"%Y¼Éª>|Tş1^a1ö*®
+Üï0Zƒâ÷±b¦¯Ëv:lengthi£:dependencies_digest"%Ü¹ş¯ERjXÑù<ç¶n˜LY(¢÷¡oÓ‘ÃÍû:idI"E46da44a147cd9fd5da749c22df5189e7de10f1a7edaeebb6122495d26c729961;F:
+mtimel+½ÉY

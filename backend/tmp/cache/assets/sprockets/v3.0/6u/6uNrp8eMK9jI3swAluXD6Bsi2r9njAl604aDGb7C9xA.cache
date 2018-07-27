@@ -1,0 +1,15 @@
+{:uriI"file://app/assets/javascripts/angular/users/_lineform.html?type=text/ng-html&id=4c032f71f06f25bea989d6452c0d177c479dc4d55af0308f58eaf2532ef5447a:ET:load_pathI"app/assets/javascripts;T:filenameI"8app/assets/javascripts/angular/users/_lineform.html;T:	nameI"angular/users/_lineform;T:logical_pathI"!angular/users/_lineform.html;T:content_typeI"text/ng-html;T:sourceI"Š<div ng-controller='CreateUsersController as vm' class="row col-xs-12 col-md-6">
+  <form name="form" ng-submit="form.$valid && vm.create()">
+    <div class="col-xs-3">
+      <email-form form="form" model="vm.newUser"></email-form>
+    </div>
+    <div class="col-xs-3">
+      <password-form form="form" model="vm.newUser" include-confirmation="false"></password-form>
+    </div>
+  </form>
+</div>;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"8processors:type=text/ng-html&file_type=text/ng-html;TTI"Ffile-digest://app/assets/javascripts/angular/users/_lineform.html;TTF:charsetI"
+utf-8;F:digest"%™pGÑ¬éãWÍgD 
+PFÄğô]qÑP§vÄ;ª$:lengthiŠ:dependencies_digest"%djQ}q,ßßŠ?»²!X¿EÚÖÜ‰äõnó10´À:idI"E4c032f71f06f25bea989d6452c0d177c479dc4d55af0308f58eaf2532ef5447a;F:
+mtimel+}2ÉY

@@ -1,0 +1,19 @@
+<div class='panel-body'>
+
+  <h1>Physician Form</h1>
+  <div class="userinfo">
+    <p><label><%= @customForm.name %></label></p>
+    <p><label><%= @customForm.address %></label></p>
+    <p><label><%= @customForm.birthday.to_date %></label></p>
+  </div>
+  
+  <h2>Ingredients</h2>
+  <div class='flex-container'>
+    <% @ingredients.each do |ig| %>
+      <div class="flex-item">
+        <p><label class="item-name"><%= ig["name"] %> </label>: <label class="item-percentage"><%= ig["percentage"] %>%</label></p>
+        <p><label class="item-description">hint</label>: <%= ig["description"] %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

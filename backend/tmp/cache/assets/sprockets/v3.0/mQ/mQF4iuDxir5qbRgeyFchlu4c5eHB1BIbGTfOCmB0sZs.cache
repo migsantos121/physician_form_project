@@ -1,0 +1,18 @@
+{:uriI"¥file://app/assets/javascripts/angular/components/directives/type_form/form.html?type=text/ng-html&id=66f0b3653634794dcdb3e08679534b9b544514f3d84f8765c9d2e615f30fac70:ET:load_pathI"app/assets/javascripts;T:filenameI"Mapp/assets/javascripts/angular/components/directives/type_form/form.html;T:	nameI"1angular/components/directives/type_form/form;T:logical_pathI"6angular/components/directives/type_form/form.html;T:content_typeI"text/ng-html;T:sourceI".<div ng-controller="GenericFormController as vm" class="form-group">
+
+  <div class="form-group">
+    <label class="form-label" for="type">User Type</label>
+
+    <div class="controls">
+      <select ng-model="model.type" ng-init = "model.type = model.type||'regular'" aria-label="Contact method" name="type" id="type">
+        <option value = "regular" ng-selected="1">regular user</option>
+        <option value = "user_manager" >user manager</option>
+        <option value = "administrator" >Administrator</option>
+      </select>
+    </div>
+  </div>
+</div>;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"8processors:type=text/ng-html&file_type=text/ng-html;TTI"[file-digest://app/assets/javascripts/angular/components/directives/type_form/form.html;TTF:charsetI"
+utf-8;F:digest"%S5(¡5†gÏ.ÁR¬†mÅÆéd7Ò¶a’ÃÊ‘“3#2Ñ:lengthi.:dependencies_digest"%òäªäÄzW™İf³¾ˆÄe JÆ­µƒŒ‹EÏó†:idI"E66f0b3653634794dcdb3e08679534b9b544514f3d84f8765c9d2e615f30fac70;F:
+mtimel+¸dÊY

@@ -1,0 +1,62 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css);
+@import url(../../node_modules/react-datepicker/dist/react-datepicker.css);
+
+
+:global{
+  .row {
+    display: flex;
+  }
+
+  .isCurrent {
+    background:red;
+    color:blue;
+  }
+
+  // JSON pretty
+  .json-pretty {
+    line-height: 1.3;
+    color: #f5bb12;
+    background: #1e1e1e;
+  }
+
+  .json-pretty .json-key {
+    color: #d3422e;
+  }
+
+  .json-pretty .json-value {
+    color: #bfd7db;
+  }
+
+  .json-pretty .json-string {
+    color: #7fd6fa;
+  }
+
+  .json-pretty .json-boolean {
+    color: #4bae16;
+  }
+}
+
+body {
+  background-color: #FFFFEE;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  width: 900px;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: left;
+}
+.flex-item {
+  margin-right: 25px;
+  margin-left: 0px;
+  width: 220px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
