@@ -7,8 +7,7 @@ class Api::FormulationIngredientsController < ApiController
     end
 
     def show_ingredients
-      puts params[:formulation_id]
-      @filtered_query = FormulationIngredient.where(formulation_id: params[:formulation_id])
+      @filtered_query = FormulationIngredient.where(formulation_id: formulation_ingredient_params[:formulation_id])
       render json: @filtered_query
     end
   

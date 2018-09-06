@@ -1,8 +1,8 @@
 
-import * as querystring from "querystring";
-import * as url from "url";
-import * as isomorphicFetch from "isomorphic-fetch";
-import * as assign from "core-js/library/fn/object/assign";
+import * as querystring from 'querystring';
+import * as url from 'url';
+import * as isomorphicFetch from 'isomorphic-fetch';
+import * as assign from 'core-js/library/fn/object/assign';
 
 interface Dictionary<T> { [index: string]: T; }
 
@@ -17,9 +17,9 @@ export const IngredientsApiFetchParamCreator = {
      * @summary /Ingredients
      */
     fetchAll(options?: any): FetchArgs {
-        const baseUrl = `/ingredients`;
+        const baseUrl = '/ingredients';
         let urlObj = url.parse(baseUrl, true);
-        let fetchOptions: RequestInit = assign({}, { method: "GET" }, options);
+        let fetchOptions: RequestInit = assign({}, { method: 'GET' }, options);
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
@@ -32,9 +32,9 @@ export const IngredientsApiFetchParamCreator = {
     },
 
     filter(options?: any): FetchArgs {
-        const baseUrl = `/formulation_ingredients/show_ingredients`;
+        const baseUrl = '/formulation_ingredients/show_ingredients';
         let urlObj = url.parse(baseUrl, true);
-        let fetchOptions: RequestInit = assign({}, { method: "POST" }, options);
+        let fetchOptions: RequestInit = assign({}, { method: 'POST' }, options);
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {

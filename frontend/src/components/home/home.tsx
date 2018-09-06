@@ -2,13 +2,13 @@ import * as React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import DatePicker from 'react-datepicker';
 import * as moment from 'moment';
-import classnames = require("classnames");
+import classnames = require('classnames');
 import {observer} from 'mobx-react';
 import {Ingredients} from '../ingredients/ingredents';
 
 let styles = require('./home.scss');
-import {HomeState, HomeStore} from "../../stores/home";
-import {Ingredient} from "../../models/interface";
+import {HomeState, HomeStore} from '../../stores/home';
+import {Ingredient} from '../../models/interface';
 
 @observer
 export class Home extends React.Component<{}, {}> {
@@ -45,26 +45,26 @@ export class Home extends React.Component<{}, {}> {
                 <FormGroup>
                     <label >Full Name</label>
                     <Input 
-                        type="text" 
-                        name="name" 
-                        id="username"
-                        placeholder="ex. Elina" 
+                        type='text' 
+                        name='name' 
+                        id='username'
+                        placeholder='ex. Elina' 
                         onChange={this.onNameChange.bind(this)}
                         />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="useraddress">Address</Label>
+                    <Label for='useraddress'>Address</Label>
                     <Input 
-                        type="text" 
-                        name="name" 
-                        id="useraddress" 
-                        placeholder="ex. Headquarters 1120 N Street Sacramento 916-654-5266" 
+                        type='text' 
+                        name='name' 
+                        id='useraddress' 
+                        placeholder='ex. Headquarters 1120 N Street Sacramento 916-654-5266' 
                         onChange={this.onAddressChange.bind(this)}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label for="useraddress">Birthday</Label>
+                    <Label for='useraddress'>Birthday</Label>
                     <DatePicker
-                        className="form-control"
+                        className='form-control'
                         selected={HomeStore.birthday}
                         onChange={this.onBirthdayChange.bind(this)}
                     />
@@ -73,9 +73,9 @@ export class Home extends React.Component<{}, {}> {
                 <FormGroup>
                     <legend>Formulation</legend>
                     <Input 
-                        type="select" 
-                        name="select" 
-                        id="exampleSelect"
+                        type='select' 
+                        name='select' 
+                        id='exampleSelect'
                         onChange={HomeStore.onFormulationChange.bind(HomeStore)}
                         >
                         {
@@ -87,7 +87,7 @@ export class Home extends React.Component<{}, {}> {
                 </FormGroup>
                 <FormGroup>
                     <Label>Ingredients</Label>
-                    <div className="flex-container">
+                    <div className='flex-container'>
                     {
                         HomeStore.selIngredients.map((ing:Ingredient, idx: number) => {
                             return (
@@ -107,7 +107,7 @@ export class Home extends React.Component<{}, {}> {
                 </FormGroup>
                 <Button onClick={HomeStore.upload.bind(HomeStore)}>Submit</Button>
                 { HomeStore.downloadable_url && <a href={HomeStore.downloadable_url}>{HomeStore.downloadable_url}</a> }
-                { HomeStore.ErrorMessage && <a style={{color: 'red'}}>{HomeStore.ErrorMessage}</a> }
+                { HomeStore.ErrorMessage && <a className={styles.error}>{HomeStore.ErrorMessage}</a> }
             </Form>
         </div>)
     }

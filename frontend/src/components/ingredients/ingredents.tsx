@@ -3,7 +3,8 @@ import {
     Label, Input
 } from 'reactstrap';
 import {observer} from 'mobx-react';
-import {HomeStore} from "../../stores/home";
+import {HomeStore} from '../../stores/home';
+let styles = require('./ingredients.scss');
 
 interface PropsT {
     ingname: string, 
@@ -15,6 +16,10 @@ interface PropsT {
 }
 interface StateT {
     value: string
+}
+
+function cloneObject(obj: Object){
+    return JSON.parse(JSON.stringify(obj));
 }
 
 @observer
@@ -37,7 +42,7 @@ export class Ingredients extends React.Component<PropsT, StateT> {
         this.setState({value: null});
         const {idx} = this.props;
         HomeStore.selIngredients[idx].percentage = parseFloat(event.target.value);
-        HomeStore.selIngredients = JSON.parse(JSON.stringify(HomeStore.selIngredients));
+        HomeStore.selIngredients = cloneObject(HomeStore.selIngredients);
         HomeStore.errorExist(idx);
     }
 
@@ -49,18 +54,19 @@ export class Ingredients extends React.Component<PropsT, StateT> {
 
     render() {
         var {ingname, maximum_percentage, minimum_percentage, percentage, idx} = this.props;
-        return ( <div className="flex-item">
-                    <Label style={{height: '24px', maxWidth: '140px', overflow: 'hidden'}}>{ingname}</Label>
-                    <Label style={{float: 'right', color: '#6C8FA1'}}>{minimum_percentage}-{maximum_percentage}%</Label>
+        return ( <div className='flex-item'>
+                    <Label className={styles.ingName}>{ingname}</Label>
+                    <Label className={styles.ingPercent}>{minimum_percentage}-{maximum_percentage}%</Label>
                     <Input 
-                        type="number" 
-                        name="name" 
-                        id="username" 
-                        step="0.01" 
+                        type='number' 
+                        name='name' 
+                        id='username' 
+                        step='0.01' 
                         value={this.state.value || (percentage&& percentage != 101 && percentage.toString())}
                         onChange={this.onChange.bind(this)}
                         onBlur={this.onBlur.bind(this)}
-                        style={HomeStore.selIngErrs[idx]? {border: 'solid red 1px'}: {}}/>
+                        className={HomeStore.selIngErrs[idx]? styles.errorBorder: ''}
+                        />
                 </div>)
     }
 }

@@ -1,15 +1,17 @@
 import {action, observable} from 'mobx';
-import {FormulationsApi, IngredientsApi} from "../api/api";
-import RouterStore from "./router"
-import {views} from "./views";
+import {FormulationsApi, IngredientsApi} from '../api/api';
+import RouterStore from './router'
+import {views} from './views';
 import {Formulation, Ingredient} from '../models/interface';
 import * as moment from 'moment';
 const formulationsApi: FormulationsApi = new FormulationsApi();
 const ingredientsApi: IngredientsApi = new IngredientsApi();
 
-const Custom_FORM_ID: number = 10000;
-const Predefined_FORM: number = 10002;
-const No_FORM_ID: number = 10001;
+export  enum FORM_CONSTANTS {
+    CUSTOM_FORM_ID = 10000,
+    PREDEFINED_FORM = 10002,
+    NO_FORM_ID = 10001
+}
 
 export  enum HomeState {
     UserInput,
@@ -31,10 +33,10 @@ interface IFormUploadResponse {
 interface ErrorObject {
     [key: number]: boolean
 }
-// class FormulationObservable {
-//     @observable id: number;
-//     @observable name: string;
-// }
+
+function cloneObject(obj: Object){
+    return JSON.parse(JSON.stringify(obj));
+}
 
 class HomeObservable {
     @observable State: HomeState;
@@ -55,16 +57,16 @@ class HomeObservable {
         this.ingredients = [];
         this.selIngredients = [];
         this.selIngErrs = {};
-        this.birthday = moment("1-1-1995", "MM-DD-YYYY");
+        this.birthday = moment('1-1-1995', 'MM-DD-YYYY');
     }
 
     fetchFormulations() {
-        console.log("start fetching Formulations");
+        console.log('start fetching Formulations');
         formulationsApi.fetchAll().then((response: Response) => {
 
             response.json().then(((formulations: Formulation[]) => {
-                this.formulations = [{id: No_FORM_ID, name: ""}, {id: Custom_FORM_ID, name: "Custom"}].concat(formulations);
-                console.log("result fetched Formulations", formulations);
+                this.formulations = [{id: FORM_CONSTANTS.NO_FORM_ID, name: ''}, {id: FORM_CONSTANTS.CUSTOM_FORM_ID, name: 'Custom'}].concat(formulations);
+                console.log('result fetched Formulations', formulations);
             }))
 
         }).catch((response: Response) => {
@@ -74,12 +76,12 @@ class HomeObservable {
 
 
     fetchIngredients() {
-        console.log("start fetching ingredients");
+        console.log('start fetching ingredients');
         ingredientsApi.fetchAll().then((response: Response) => {
 
             response.json().then(((ingredients: Ingredient[]) => {
                 this.ingredients = ingredients;
-                console.log("result fetched ingredients", ingredients);
+                console.log('result fetched ingredients', ingredients);
             }))
 
         }).catch((response: Response) => {
@@ -90,18 +92,18 @@ class HomeObservable {
     @action 
     onFormulationChange(event: React.ChangeEvent<HTMLInputElement>): void {
 
-        if (parseInt(event.target.value) == Custom_FORM_ID) {
+        if (parseInt(event.target.value) == FORM_CONSTANTS.CUSTOM_FORM_ID) {
             this.selIngredients = this.ingredients;
             this.selIngredients.map(ing => {ing.percentage = 101});
             this.selIngErrs = {};
-            this.selFormID = Custom_FORM_ID;
-        } else if (parseInt(event.target.value) == No_FORM_ID) {
+            this.selFormID = FORM_CONSTANTS.CUSTOM_FORM_ID;
+        } else if (parseInt(event.target.value) == FORM_CONSTANTS.NO_FORM_ID) {
             this.selIngredients = [];
             this.selIngErrs = {};
-            this.selFormID = No_FORM_ID;
+            this.selFormID = FORM_CONSTANTS.NO_FORM_ID;
         } else {
             var formData = new FormData();
-            formData.append("formulation_id", event.target.value);
+            formData.append('formulation_id', event.target.value);
             ingredientsApi.filter({
                 body: formData
             }).then((response: Response) => {
@@ -109,7 +111,7 @@ class HomeObservable {
                 response.json().then(((query: IrdIDPerc[]) => {
                     this.selIngredients = [];
                     this.selIngErrs = {};
-                    this.selFormID = Predefined_FORM;
+                    this.selFormID = FORM_CONSTANTS.PREDEFINED_FORM;
 
                     query.map(row => {
                         const filtered_ings = this.ingredients.filter(ing => ing.id == row.ingredient_id);
@@ -117,7 +119,7 @@ class HomeObservable {
                             filtered_ings[0].percentage = row.percentage;
                             this.selIngredients.push(filtered_ings[0]);
                         } else {
-                            console.log("no result with row.id", row.ingredient_id);
+                            console.log('no result with row.id', row.ingredient_id);
                         }
                     })
                 }))
@@ -129,7 +131,7 @@ class HomeObservable {
     }
 
     errorExist(idx: number) {
-        if (this.selFormID == Custom_FORM_ID && 
+        if (this.selFormID == FORM_CONSTANTS.CUSTOM_FORM_ID && 
                 (!this.selIngredients[idx].percentage || this.selIngredients[idx].percentage == 101)){
             this.selIngErrs[idx] = false;
         }
@@ -141,7 +143,7 @@ class HomeObservable {
         } else {
             this.selIngErrs[idx] = false;
         }
-        this.selIngErrs = JSON.parse(JSON.stringify(this.selIngErrs));
+        this.selIngErrs = cloneObject(this.selIngErrs);
         return this.selIngErrs[idx];
     }
 
@@ -157,15 +159,15 @@ class HomeObservable {
     @action
     upload(form: any) {
         if (this.totalErrorExist()){
-            alert("cannot upload due to issue on input!");
+            alert('cannot upload due to issue on input!');
             return;
         }
         this.State = HomeState.Uploading;
         let formData: any = new FormData(form);
-        formData.append("name", this.name);
-        formData.append("address", this.address);
-        formData.append("birthday", this.birthday);
-        if (this.selFormID == Custom_FORM_ID) {
+        formData.append('name', this.name);
+        formData.append('address', this.address);
+        formData.append('birthday', this.birthday);
+        if (this.selFormID == FORM_CONSTANTS.CUSTOM_FORM_ID) {
             this.selIngredients = this.selIngredients.filter(item => (item.percentage && item.percentage != 101));
         }
         formData.append('ingredients', JSON.stringify(this.selIngredients));

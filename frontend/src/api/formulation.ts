@@ -1,8 +1,8 @@
 
-import * as querystring from "querystring";
-import * as url from "url";
-import * as isomorphicFetch from "isomorphic-fetch";
-import * as assign from "core-js/library/fn/object/assign";
+import * as querystring from 'querystring';
+import * as url from 'url';
+import * as isomorphicFetch from 'isomorphic-fetch';
+import * as assign from 'core-js/library/fn/object/assign';
 
 interface Dictionary<T> { [index: string]: T; }
 
@@ -17,9 +17,9 @@ export const FormulationsApiFetchParamCreator = {
      * @summary /formulations
      */
     fetchAll(options?: any): FetchArgs {
-        const baseUrl = `/formulations`;
+        const baseUrl = '/formulations';
         let urlObj = url.parse(baseUrl, true);
-        let fetchOptions: RequestInit = assign({}, { method: "GET" }, options);
+        let fetchOptions: RequestInit = assign({}, { method: 'GET' }, options);
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
@@ -31,9 +31,9 @@ export const FormulationsApiFetchParamCreator = {
         };
     },
     upload(options?: any): FetchArgs {
-        const baseUrl = `/customized_formulation`;
+        const baseUrl = '/customized_formulation';
         let urlObj = url.parse(baseUrl, true);
-        let fetchOptions: RequestInit = assign({}, { method: "POST" }, options);
+        let fetchOptions: RequestInit = assign({}, { method: 'POST' }, options);
 
         let contentTypeHeader: Dictionary<string> = {};
         if (contentTypeHeader) {
